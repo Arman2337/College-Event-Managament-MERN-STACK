@@ -26,7 +26,7 @@ const EventDetails = () => {
   const deleteHandler = async () => {
     if (window.confirm('Are you sure you want to delete this event?')) {
       try {
-        await axios.delete(`http://localhost:5001/api/events/${id}`, {
+        await axios.delete(`http://localhost:5000/api/events/${id}`, {
           headers: {
             Authorization: `Bearer ${user.token}`
           }
@@ -52,7 +52,7 @@ const EventDetails = () => {
         <Card>
           <Card.Img
             variant="top"
-            src={`http://localhost:5001/uploads/${event.image}`}
+            src={`http://localhost:5000/uploads/${event.image}`}
             alt={event.title}
           />
           <Card.Body>

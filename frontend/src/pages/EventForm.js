@@ -21,7 +21,7 @@ const EventForm = () => {
     if (isEdit) {
       const fetchEvent = async () => {
         try {
-          const { data } = await axios.get(`http://localhost:5001/api/events/${id}`);
+          const { data } = await axios.get(`http://localhost:5000/api/events/${id}`);
           setTitle(data.data.title);
           setDescription(data.data.description);
           setEventType(data.data.eventType);
@@ -60,9 +60,9 @@ const EventForm = () => {
       };
 
       if (isEdit) {
-        await axios.put(`http://localhost:5001/api/events/${id}`, formData, config);
+        await axios.put(`http://localhost:5000/api/events/${id}`, formData, config);
       } else {
-        await axios.post('http://localhost:5001/api/events', formData, config);
+        await axios.post('http://localhost:5000/api/events', formData, config);
       }
 
       navigate('/');

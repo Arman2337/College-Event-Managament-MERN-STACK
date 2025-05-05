@@ -11,7 +11,7 @@ const Home = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const { data } = await axios.get('http://localhost:5001/api/events');
+        const { data } = await axios.get('http://localhost:5000/api/events');
         setEvents(data.data);
       } catch (err) {
         console.error('Error fetching events:', err);
@@ -32,7 +32,7 @@ const Home = () => {
     if (window.confirm('Are you sure you want to delete this event?')) {
       try {
         const user = JSON.parse(localStorage.getItem('user'));
-        await axios.delete(`http://localhost:5001/api/events/${id}`, {
+        await axios.delete(`http://localhost:5000/api/events/${id}`, {
           headers: {
             Authorization: `Bearer ${user.token}`
           }
@@ -76,7 +76,7 @@ const Home = () => {
             <Card>
               <Card.Img
                 variant="top"
-                src={`http://localhost:5001/uploads/${event.image}`}
+                src={`http://localhost:5000/uploads/${event.image}`}
                 alt={event.title}
               />
               <Card.Body>
